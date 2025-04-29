@@ -20,6 +20,7 @@ import com.example.myfirstapp.ui.theme.MyFirstAppTheme
 
 @Composable
 fun MainScreen(
+    onButtonClicked: () -> Unit ,
     modifier: Modifier = Modifier,
 ) {
     val itemsList = List(100) { "Knefeh $it" }
@@ -34,7 +35,7 @@ fun MainScreen(
                 verticalAlignment = Alignment.Bottom,
             ) {
                 Button(
-                    onClick = { },
+                    onClick = { onButtonClicked() },
                     content = { Text("Knefeh") },
                 )
             }
@@ -56,8 +57,8 @@ fun MainScreen(
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun MainPreview() {
     MyFirstAppTheme {
-        MainScreen()
+        MainScreen(onButtonClicked = {})
     }
 }
